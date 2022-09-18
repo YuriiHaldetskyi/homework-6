@@ -218,6 +218,40 @@ p {
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
+.modal-title {
+  display: block;
+  margin: 40px 40px 12px;
+  font-weight: 700;
+  text-align: center;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+.name-label {
+  display: block;
+  margin: 0 40px;
+  font-size: 12px;
+  line-height: calc(14 / 12);
+  letter-spacing: 0.01em;
+  color: var(--secondary-txt-cl);
+}
+.text-input {
+  display: block;
+  min-width: 448px;
+  min-height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+}
+.name-label:last-child {
+  margin-bottom: 20px;
+}
+.checkbox {
+  display: flex;
+}
+
 .close-btn {
   position: absolute;
   top: 8px;

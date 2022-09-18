@@ -84,8 +84,45 @@
       <section class="hero">
         <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
         <button class="hero-btn" type="button" data-modal-open>Замовити послугу</button>
-        <div class="backdrop is-hidden" data-modal>
+        <div class="backdrop" data-modal>
           <div class="modal">
+            <form class="modal-form">
+              <p class="modal-title">Залиште свої дані, ми вам передзвонимо</p>
+              <div class="inputs">
+                <label for="user-name" class="name-label">
+                  <span>Ім'я</span>
+                  <input
+                    id="user-name"
+                    name="user-name"
+                    class="text-input"
+                    type="text"
+                    placeholder=""
+                  />
+                </label>
+                <label for="user-tel" class="name-label">
+                  <input id="user-tel" name="user-tel" class="text-input" type="tel" />
+                  <span>Телефон</span>
+                </label>
+                <label for="user-email" class="name-label">
+                  <input id="user-email" name="user-email" class="text-input" type="mail" />
+                  <span>Пошта</span>
+                </label>
+                <label for="user-comment" class="name-label">
+                  <input
+                    id="user-comment"
+                    name="user-comment"
+                    class="text-input"
+                    type="text"
+                  /><span>Коментар</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label for="">
+                  <input type="checkbox" name="" id="" />
+                </label>
+                <p>Погоджуюся з розсилкою та приймаю Умови договору</p></div
+              >
+            </form>
             <button class="close-btn" data-modal-close>
               <svg class="close-icon" width="18" height="18">
                 <use href="./icons/icons.svg#close"></use>
