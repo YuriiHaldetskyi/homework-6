@@ -63,6 +63,9 @@ ul,
 p {
   margin: 0;
 }
+textarea {
+  resize: none;
+}
 /* Ховаємо заголовок */
 .visually-hidden {
   position: absolute;
@@ -84,6 +87,22 @@ p {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
+}
+.btn {
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(30 / 16);
+  letter-spacing: 0.06em;
+  background: var(--actionaly-txt-cl);
+  color: var(--white-txt-cl);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  border: none;
+  padding: 10px 32px;
 }
 /* HEADER */
 .header-container {
@@ -189,6 +208,7 @@ p {
   align-items: center;
   background-position: center;
 }
+/* MOBAL */
 .backdrop {
   position: fixed;
   top: 0;
@@ -208,8 +228,9 @@ p {
 }
 .modal {
   position: absolute;
-  width: 528px;
-  height: 581px;
+  padding: 40px;
+  min-width: 528px;
+  min-height: 581px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -220,38 +241,105 @@ p {
 }
 .modal-title {
   display: block;
-  margin: 40px 40px 12px;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 12px;
 }
-.inputs {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: center;
-}
-.name-label {
+
+.modal-form-label {
+  position: relative;
   display: block;
-  margin: 0 40px;
   font-size: 12px;
   line-height: calc(14 / 12);
   letter-spacing: 0.01em;
   color: var(--secondary-txt-cl);
+  margin-bottom: 10px;
 }
-.text-input {
+.form-input-name {
+  display: inherit;
+  margin-bottom: 4px;
+}
+.modal-form-input {
   display: block;
-  min-width: 448px;
-  min-height: 40px;
+  width: 100%;
+  height: 40px;
   border-radius: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
+  outline: transparent;
+  padding: 0 42px;
+  transition: border-color var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1),
+    fill var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-form-input:focus {
+  border-color: var(--actionaly-txt-cl);
+}
+.modal-form-input:focus + .modal-form-icon {
+  fill: var(--actionaly-txt-cl);
 }
 .name-label:last-child {
   margin-bottom: 20px;
-}
-.checkbox {
   display: flex;
+  flex-direction: column;
 }
-
+.modal-form-name {
+  display: block;
+  margin-bottom: 4px;
+}
+.modal-form-icon {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  transition: fill var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-form-checkbox {
+  position: relative;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.form-input-comment {
+  display: block;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  outline: transparent;
+  transition: border-color var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-input-comment:focus {
+  border-color: var(--actionaly-txt-cl);
+}
+.modal-checkbox-icon {
+  display: block;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+.modal-checkbox-input {
+  opacity: 0;
+}
+.form-icon-check {
+  opacity: 0;
+}
+.form-icon-uncheck {
+  opacity: 1;
+}
+.modal-checkbox-input:checked + .modal-checkbox-icon .form-icon-check {
+  opacity: 1;
+}
+.modal-checkbox-input:checked + .modal-checkbox-icon .form-icon-uncheck {
+  opacity: 0;
+}
+.form-send-btn {
+  transition: background-color var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-send-btn:hover,
+.form-send-btn :focus {
+  background-color: var(--active-btn-cl);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
 .close-btn {
   position: absolute;
   top: 8px;
@@ -263,7 +351,17 @@ p {
   border-radius: 50%;
   cursor: pointer;
   background-color: transparent;
+  transition: fill var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
 }
+.close-btn:hover,
+.close-btn:focus {
+  fill: var(--actionaly-txt-cl);
+}
+.span-link {
+  color: #188ce8;
+  text-decoration: underline;
+}
+/* END_MODAL */
 .hero-title {
   font-weight: 900;
   font-size: 44px;
@@ -276,20 +374,6 @@ p {
   width: 696px;
 }
 .hero-btn {
-  display: block;
-  margin: 0 auto;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: calc(30 / 16);
-  letter-spacing: 0.06em;
-  background: var(--actionaly-txt-cl);
-  color: var(--white-txt-cl);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  border: none;
-  padding: 10px 32px;
   transition: background-color var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -553,6 +637,50 @@ p {
 .sf-link:focus {
   fill: var(--white-txt-cl);
   background-color: var(--actionaly-txt-cl);
+}
+.footer-container {
+  display: flex;
+}
+.footer-mail {
+  margin-left: 93px;
+}
+.footer-text {
+  color: var(--white-txt-cl);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(16 / 14);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer-mail-input {
+  width: 358px;
+  height: 50px;
+  background-color: var(--actionaly-bg-cl);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+.footer-btn {
+  padding: 10px 62px 10px 28px;
+  position: relative;
+  transition: background-color var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow var(--time-hover-effect) cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-btn:hover,
+.footer-btn:focus {
+  background-color: var(--active-btn-cl);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+.footer-label-container {
+  display: flex;
+  gap: 12px;
+}
+.footer-mail--icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-28px, -13px);
 }
 /* _____________________________________________________________________________ */
 /* CSS for Portfolio  */
